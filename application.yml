@@ -1,2 +1,2 @@
 s3 conf:
-s3_bucket:aws-rdd-bucket
+  s3_bucket: aws-rdd-bucket
