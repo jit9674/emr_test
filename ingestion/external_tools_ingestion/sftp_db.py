@@ -13,8 +13,8 @@ if __name__ == '__main__':
     spark.sparkContext.setLogLevel('ERROR')
 
     current_dir = os.path.abspath(os.path.dirname(__file__))
-    app_config_path = os.path.abspath(current_dir + "/../" + "application.yml")
-    app_secrets_path = os.path.abspath(current_dir + "/../" + ".secrets")
+    app_config_path = os.path.abspath(current_dir + "/../../" + "application.yml")
+    app_secrets_path = os.path.abspath(current_dir + "/../../" + ".secrets")
 
     conf = open(app_config_path)
     app_conf = yaml.load(conf, Loader=yaml.FullLoader)
@@ -26,7 +26,7 @@ if __name__ == '__main__':
         .option("host", app_secret["sftp_conf"]["hostname"])\
         .option("port", app_secret["sftp_conf"]["port"])\
         .option("username", app_secret["sftp_conf"]["username"])\
-        .option("ppk", os.path.abspath(current_dir + "/../" + app_secret["sftp_conf"]["ppk"]))\
+        .option("ppk", os.path.abspath(current_dir + "/../../" + app_secret["sftp_conf"]["ppk"]))\
         .option("fileType", "csv")\
         .option("delimiter", "|")\
         .load(app_conf["sftp_conf"]["directory"] + "/receipts_delta_GBR_14_10_2017.csv")
