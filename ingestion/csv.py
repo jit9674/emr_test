@@ -1,5 +1,5 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.types import StructType,IntegerType,BooleanType,DoubleType
+from pyspark.sql.types import StructType, IntegerType, BooleanType,DoubleType
 import yaml
 import os.path
 
@@ -29,7 +29,7 @@ if __name__ == '__main__':
     #Create Schema
     fin_schema=StructType()\
         .add("id", IntegerType(), True)\
-        .add("has_debt"), BooleanType(), True)\
+        .add("has_debt"), BooleanType(), True) \
         .add("has_financial_dependents", BooleanType(), True)\
         .add("has_student_loans", BooleanType(), True)\
         .add("income", DoubleType(), True)
@@ -60,7 +60,7 @@ if __name__ == '__main__':
         .repartition(2)\
         .write\
         .partitionBy("id")\
-        .mode("overwrite")\  #ovrwrite,append,errorifexists,
+        .mode("overwrite") \  #overwrite,append,ignore and ExistifError
         .option("header","true")\
         .option("delimeter","~")\
         .csv("s3a://" + app_conf["s3_conf"]["s3_bucket"] + "/fin")

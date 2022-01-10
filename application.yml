@@ -1,2 +1,9 @@
 s3_conf:
   s3_bucket: aws-rdd-bucket
+
+sftp_conf:
+  filetype: csv
+  delimiter: |
+  directory: /home/ubuntu/data
+
+
