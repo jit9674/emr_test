@@ -6,3 +6,6 @@ sftp_conf:
   delimiter: |
   directory: /home/ubuntu/data
 
+mongodb_config:
+  database: school
+  collection: students
