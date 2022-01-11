@@ -6,4 +6,3 @@ sftp_conf:
   delimiter: |
   directory: /home/ubuntu/data
 
-

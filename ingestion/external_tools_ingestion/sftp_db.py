@@ -24,7 +24,7 @@ if __name__ == '__main__':
         .option("host", app_secret["sftp_conf"]["hostname"])\
         .option("port", app_secret["sftp_conf"]["port"])\
         .option("username", app_secret["sftp_conf"]["username"])\
-        .option("ppk", os.path.abspath(current_dir + "/../../" + app_secret["sftp_conf"]["ppk"]))\
+        .option("pem", os.path.abspath(current_dir + "/../../" + app_secret["sftp_conf"]["pem"]))\
         .option("fileType", "csv")\
         .option("delimiter", "|")\
         .load(app_conf["sftp_conf"]["directory"] + "/receipts_delta_GBR_14_10_2017.csv")
@@ -32,3 +32,4 @@ if __name__ == '__main__':
     ol_txn_df.show(5, False)
 
 # spark-submit --packages "com.springml:spark-sftp_2.11:1.1.1" ingestion/external_tools_ingestion/sftp_db.py
+# spark-submit --packages "org.apache.hadoop:hadoop-aws:2.7.4" ingestion/external_tools_ingestion/sftp_db.py
